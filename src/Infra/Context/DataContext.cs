@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Infra.Mappings;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,5 +15,10 @@ namespace Infra.Context
         {
         }
         public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfiguration(new UserMap());
+        }
     }
 }
