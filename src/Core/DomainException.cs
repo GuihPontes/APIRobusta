@@ -9,8 +9,8 @@ namespace Core
     public class DomainException : Exception
 
     {
-        internal List<string> _erros;
-        public List<string> Erros => _erros;
+        internal IReadOnlyCollection<string> _erros;
+        public IReadOnlyCollection<string> Erros => _erros;
 
         public DomainException() { }
 
